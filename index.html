@@ -1,105 +1,117 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio mahasiswa S1 Sistem Informasi Telkom University.">
     <title>M. Ali Imron Almuzaky</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #e0f7fa;
-            font-family: 'Arial', sans-serif;
-            color: #333;
-        }
-
-        .profi {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 15px;
-            text-align: center;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        h3 {
-            margin: 10px 0;
-            font-weight: normal;
-        }
-
-        .media-sosial {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .media-sosial a {
-            width: 40px;
-            height: 40px;
-            display: inline-block;
-            border-radius: 50%;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .media-sosial a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .media-sosial img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .date {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #fff;
-            color: blue;
-            font-size: 25px;
-        }
-    </style>
+    <!-- Link ke Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link ke Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="profi">
-        <img src="M._ALI_IMRON_ALMUZAKY-.png" alt="profil">
-        <h3>M. Ali Imron Almuzaky</h3>
-        <h3>1202223312</h3>
-        <h3>S1 Sistem Informasi</h3>
+<body class="font-sans bg-gray-100">
 
-        <div class="media-sosial">
-            <a href="https://www.instagram.com/aliimron_02" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-            <a href="https://github.com/aliimron26" target="_blank">
-                <img src="https://pngimg.com/uploads/github/github_PNG68.png" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/aliimrona/" target="_blank">
-                <img src="https://logosmarken.com/wp-content/uploads/2020/04/Linkedin-Emblem.png" alt="LinkedIn">
-            </a>
-        </div>
+    <!-- Header Navbar dengan Bootstrap -->
+    <header class="bg-gray-800 text-white p-4">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand text-2xl font-semibold" href="#">M. Ali Imron Almuzaky</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link hover:text-gray-300" href="#about">Tentang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hover:text-gray-300" href="#skills">Keahlian</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hover:text-gray-300" href="#experience">Pengalaman</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <div class="date">
-            <script>
-                document.write(new Date().toLocaleDateString());
-            </script>
+    <!-- Tentang Saya Section -->
+    <section id="about" class="py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold">Tentang Saya</h2>
+            <p class="mt-4 text-lg">Saya adalah mahasiswa semester 6 Program Studi Sistem Informasi di Telkom University. Saya memiliki minat besar dalam pengembangan perangkat lunak, analisis data, dan manajemen sistem informasi. Saya bersemangat untuk mengembangkan keterampilan saya di dunia teknologi, terutama dalam bidang pemrograman dan pengembangan aplikasi web.</p>
         </div>
-    </div>
+    </section>
+
+    <!-- Keahlian Section -->
+    <section id="skills" class="bg-gray-200 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-semibold">Keahlian dan Teknologi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold">Web Development</h3>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>React, Vue.js</li>
+                        <li>Node.js, Express</li>
+                    </ul>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold">Database Management</h3>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>MySQL, PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold">Tools & Frameworks</h3>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>Bootstrap, Tailwind CSS</li>
+                        <li>Docker, Git, GitHub</li>
+                        <li>Jenkins, Travis CI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Kerja Section -->
+    <section id="experience" class="py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-semibold">Pengalaman Proyek</h2>
+            <div class="mt-8">
+                <div class="bg-white shadow-lg rounded-lg p-6 mb-4">
+                    <h3 class="text-xl font-semibold">Proyek Sistem Informasi - Telkom University</h3>
+                    <p class="text-gray-700">Agustus 2023 - Desember 2023</p>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>Mengembangkan aplikasi sistem informasi berbasis web untuk manajemen data mahasiswa</li>
+                        <li>Penggunaan teknologi seperti React.js, Node.js, dan MySQL</li>
+                        <li>Menerapkan autentikasi pengguna dengan JWT dan pengelolaan akses berbasis peran</li>
+                    </ul>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-6 mb-4">
+                    <h3 class="text-xl font-semibold">Penelitian Data Mining - Telkom University</h3>
+                    <p class="text-gray-700">Januari 2023 - Mei 2023</p>
+                    <ul class="list-disc list-inside mt-4">
+                        <li>Melakukan penelitian tentang penerapan algoritma machine learning untuk prediksi pola perilaku pengguna</li>
+                        <li>Memanfaatkan Python dengan pustaka seperti Pandas, Scikit-learn, dan Matplotlib</li>
+                        <li>Menulis laporan penelitian untuk publikasi akademik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer dengan Styling Sederhana -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2025 M. Ali Imron Almuzaky.</p>
+    </footer>
+
+    <!-- Script untuk Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
