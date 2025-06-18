@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio M. Ali Imron Almuzaky - Mahasiswa Sistem Informasi & Pengembang Web">
+    <title>Ali Imron | Portofolio</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">M. Ali Imron Almuzaky</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Proyek</a>
+                <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Keahlian</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">Tentang</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Kontak</a>
+            </div>
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 py-2 shadow-md" id="mobile-menu">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-600">Proyek</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-600">Keahlian</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">Tentang</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-20 relative">
+    <!-- New Banner for Development -->
+    <div class="absolute top-0 left-0 w-full bg-red-600 text-white text-center py-2 font-bold">
+        Website ini sedang dalam tahap pengembangan. Mohon maaf jika Informasi belum lengkap.
+    </div>
+    
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Hai, Saya Ali Imron</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6">Pengembang Web & Mahasiswa Sistem Informasi</h2>
+            <p class="text-lg mb-8">Saya membuat solusi digital yang kreatif dan fungsional dengan fokus pada pengalaman pengguna yang optimal.</p>
+            <div class="flex space-x-4">
+                <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300">Lihat Proyek</a>
+                <a href="https://github.com/aliimron26" target="_blank" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition duration-300">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+            </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+            <img src="image/profile.jpg" alt="M. Ali Imron Almuzaky" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white shadow-xl">
+        </div>
+    </div>
+</section>
+
+    <!-- Proyek Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Proyek Terbaru</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-list">
+                <!-- Proyek akan dimuat di sini -->
+            </div>
+            <div class="text-center mt-8">
+                <button id="show-more-projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                    <i class="fas fa-arrow-down mr-2"></i>Lihat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Keahlian Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Keahlian Teknis</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Web Development -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-code text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Pengembangan Web</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Membangun aplikasi web responsif dan interaktif dengan teknologi terbaru.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML5</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">CSS3</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Laravel</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Tailwind</span>
+                    </div>
+                </div>
+                
+                <!-- Programming -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-laptop-code text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Pemrograman</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Mengembangkan solusi perangkat lunak dengan berbagai bahasa pemrograman.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">PHP</span>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-tools text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Alat & Platform</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Menggunakan berbagai alat modern untuk pengembangan yang efisien.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Git/GitHub</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">VS Code</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Saya Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Tentang Saya</h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="image/profile.jpg" alt="M. Ali Imron Almuzaky" class="rounded-lg w-64 h-64 object-cover shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Profil Singkat</h3>
+                    <p class="text-gray-600 mb-6">Saya adalah mahasiswa Sistem Informasi di Telkom University dengan passion di bidang pengembangan web dan teknologi informasi. Saya senang menciptakan solusi digital yang tidak hanya berfungsi dengan baik tetapi juga memberikan pengalaman pengguna yang menyenangkan.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-graduation-cap text-blue-500 mr-2"></i>Pendidikan</h4>
+                            <p class="text-gray-600">S1 Sistem Informasi<br>Telkom University<br>IPK: 3.66/4.00</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-briefcase text-blue-500 mr-2"></i>Pengalaman</h4>
+                            <p class="text-gray-600">Staff Riset & Development<br>EDM Laboratory<br>2024 - Sekarang</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/aliimrona/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/aliimron26" target="_blank" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:almu26zaky@gmail.com" class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition duration-300">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="contact" class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Mari Berkolaborasi!</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Hubungi Saya</h3>
+                    <p class="mb-6">Saya terbuka untuk peluang magang, proyek freelance, atau sekadar berdiskusi tentang teknologi.</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-4"></i>
+                            <span>+62 895 3645 01614</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-4"></i>
+                            <a href="mailto:almu26zaky@gmail.com" class="hover:underline">almu26zaky@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4"></i>
+                            <span>Grobogan, Jawa Tengah - Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Kirim Pesan</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Nama Anda" class="w-full px-4 py-3 rounded-lg bg-blue-500 border border-blue-400 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white focus:border-white">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email Anda" class="w-full px-4 py-3 rounded-lg bg-blue-500 border border-blue-400 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white focus:border-white">
+                        </div>
+                        <div>
+                            <textarea placeholder="Pesan Anda" rows="4" class="w-full px-4 py-3 rounded-lg bg-blue-500 border border-blue-400 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white focus:border-white"></textarea>
+                        </div>
+                        <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300 w-full">
+                            <i class="fas fa-paper-plane mr-2"></i>Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white">Ali Imron</a>
+                    <p class="mt-2 text-gray-400">Pengembang Web & Mahasiswa Sistem Informasi</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/aliimrona/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/aliimron26" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="mailto:almu26zaky@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 M. Ali Imron Almuzaky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hidden hover:bg-blue-700 transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    // Fungsi untuk menampilkan proyek dari file JSON
+        async function loadProjects() {
+            try {
+                const response = await axios.get('projects.json'); // Mengambil data proyek dari JSON
+                const projects = response.data.projects;
+                const projectList = document.getElementById('project-list');
+                const showMoreButton = document.getElementById('show-more-projects');
+                
+                // Tampilkan hanya 3 proyek pertama secara default
+                let initialProjects = projects.slice(0, 3);
+                let allProjects = projects;
+                let showingAll = false;
+                
+                function renderProjects(projectsToShow) {
+                    let projectHTML = '';
+                    projectsToShow.forEach(project => {
+                        projectHTML += `
+                            <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg">
+                                <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2 text-gray-800">${project.title}</h3>
+                                    <p class="text-gray-600 mb-4">${project.description}</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">${tech}</span>`).join('')}
+                                    </div>
+                                    <a href="${project.link}" class="text-blue-600 font-medium hover:underline">Lihat Detail →</a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    projectList.innerHTML = projectHTML;
+                }
+                
+                // Render proyek awal
+                renderProjects(initialProjects);
+                
+                // Tambahkan event listener untuk tombol "Lihat Lebih Banyak"
+                showMoreButton.addEventListener('click', () => {
+                    if (showingAll) {
+                        renderProjects(initialProjects);
+                        showMoreButton.innerHTML = '<i class="fas fa-arrow-down mr-2"></i>Lihat Lebih Banyak';
+                        showingAll = false;
+                        
+                        // Scroll ke bagian proyek
+                        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        renderProjects(allProjects);
+                        showMoreButton.innerHTML = '<i class="fas fa-arrow-up mr-2"></i>Tampilkan Sedikit';
+                        showingAll = true;
+                    }
+                });
+                
+                // Sembunyikan tombol jika tidak ada proyek lebih banyak
+                if (projects.length <= 3) {
+                    showMoreButton.style.display = 'none';
+                }
+                
+            } catch (error) {
+                console.error('Error loading projects:', error);
+            }
+        }
+
+        // Load projects saat halaman dimuat
+        window.onload = loadProjects;
+    </script>
+</body>
+</html>

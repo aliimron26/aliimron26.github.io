@@ -1,0 +1,77 @@
+{
+    "projects": [
+        {
+            "title": "Sistem Informasi Mahasiswa",
+            "description": "Platform berbasis web untuk manajemen data mahasiswa dengan fitur lengkap.",
+            "technologies": [
+                "Laravel",
+                "MySQL",
+                "Bootstrap"
+            ],
+            "image": "\/image\/project\/project1.jpg",
+            "link": "#"
+        },
+        {
+            "title": "Sistem Absensi Wajah",
+            "description": "Aplikasi absensi berbasis pengenalan wajah dengan akurasi tinggi.",
+            "technologies": [
+                "Python",
+                "OpenCV",
+                "Flask"
+            ],
+            "image": "\/image\/project\/project2.jpg",
+            "link": "#"
+        },
+        {
+            "title": "cek",
+            "description": "sfddsfsfsf",
+            "technologies": [
+                "python",
+                " js"
+            ],
+            "image": "image\/project\/WhatsApp Image 2025-05-30 at 13.44.35_e689692b.jpg",
+            "link": "http:\/\/127.0.0.1:5500\/aliimron26.github.io\/index.html"
+        },
+        {
+            "title": "daddsa",
+            "description": "daddsdd",
+            "technologies": [
+                "python",
+                " js",
+                "php"
+            ],
+            "image": "image\/project\/deepseek_mermaid_20250523_f9788b.png",
+            "link": "http:\/\/127.0.0.1:5500\/aliimron26.github.io\/index.html"
+        },
+        {
+            "title": "cek",
+            "description": "sfddsfsfsf",
+            "technologies": [
+                "python",
+                " js"
+            ],
+            "image": "image\/project\/Screenshot (127).png",
+            "link": "http:\/\/127.0.0.1:5500\/aliimron26.github.io\/index.html"
+        },
+        {
+            "title": "cek",
+            "description": "sfddsfsfsf",
+            "technologies": [
+                "python",
+                " js"
+            ],
+            "image": "image\/project\/Screenshot (132).png",
+            "link": "http:\/\/127.0.0.1:5500\/aliimron26.github.io\/index.html"
+        },
+        {
+            "title": "cek",
+            "description": "sfddsfsfsf",
+            "technologies": [
+                "python",
+                " js"
+            ],
+            "image": "image\/project\/Screenshot (131).png",
+            "link": "http:\/\/127.0.0.1:5500\/aliimron26.github.io\/index.html"
+        }
+    ]
+}
