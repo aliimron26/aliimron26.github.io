@@ -10,17 +10,6 @@
             ],
             "image": "\/image\/project\/project1.jpg",
             "link": "#"
-        },
-        {
-            "title": "Sistem Absensi Wajah",
-            "description": "Aplikasi absensi berbasis pengenalan wajah dengan akurasi tinggi.",
-            "technologies": [
-                "Python",
-                "OpenCV",
-                "Flask"
-            ],
-            "image": "\/image\/project\/project2.jpg",
-            "link": "#"
         }
     ]
 }
