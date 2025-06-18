@@ -1,15 +1,4 @@
 {
     "projects": [
-        {
-            "title": "Sistem Informasi Mahasiswa",
-            "description": "Platform berbasis web untuk manajemen data mahasiswa dengan fitur lengkap.",
-            "technologies": [
-                "Laravel",
-                "MySQL",
-                "Bootstrap"
-            ],
-            "image": "\/image\/project\/project1.jpg",
-            "link": "#"
-        }
     ]
 }
