@@ -77,6 +77,7 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('bg-white/95');
     }
 });
+
 // Fungsi untuk menampilkan proyek dari file JSON
 async function loadProjects() {
     try {
@@ -86,7 +87,6 @@ async function loadProjects() {
         const showMoreButton = document.getElementById('show-more-projects');
         const emptyProjectMessage = document.getElementById('empty-project-message');
         
-        // Periksa jika tidak ada proyek
         if (projects.length === 0) {
             projectList.style.display = 'none';
             showMoreButton.style.display = 'none';
@@ -94,7 +94,6 @@ async function loadProjects() {
             return;
         }
         
-        // Tampilkan hanya 3 proyek pertama secara default
         let initialProjects = projects.slice(0, 3);
         let allProjects = projects;
         let showingAll = false;
@@ -114,7 +113,7 @@ async function loadProjects() {
                             <div class="flex flex-wrap gap-2 mb-6">
                                 ${project.technologies.map(tech => `<span class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-700 px-3 py-1 rounded-full text-xs font-medium border border-blue-200/50">${tech}</span>`).join('')}
                             </div>
-                            <a href="${project.link}" class="inline-flex items-center text-blue-600 font-semibold hover:text-purple-600 transition-colors group">
+                            <a href="proyek/${project.title.toLowerCase().replace(/\s+/g, '-')}.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-purple-600 transition-colors group">
                                 Lihat Detail 
                                 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                             </a>
@@ -130,17 +129,13 @@ async function loadProjects() {
             });
         }
         
-        // Render proyek awal
         renderProjects(initialProjects);
         
-        // Tambahkan event listener untuk tombol "Lihat Lebih Banyak"
         showMoreButton.addEventListener('click', () => {
             if (showingAll) {
                 renderProjects(initialProjects);
                 showMoreButton.innerHTML = '<i class="fas fa-arrow-down mr-2"></i>Lihat Lebih Banyak';
                 showingAll = false;
-                
-                // Scroll ke bagian proyek
                 document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
             } else {
                 renderProjects(allProjects);
@@ -149,14 +144,12 @@ async function loadProjects() {
             }
         });
         
-        // Sembunyikan tombol jika tidak ada proyek lebih banyak
         if (projects.length <= 3) {
             showMoreButton.style.display = 'none';
         }
         
     } catch (error) {
         console.error('Error loading projects:', error);
-        // Tampilkan pesan error jika gagal memuat proyek
         document.getElementById('project-list').style.display = 'none';
         document.getElementById('show-more-projects').style.display = 'none';
         document.getElementById('empty-project-message').classList.remove('hidden');
@@ -174,38 +167,3 @@ async function loadProjects() {
 
 // Load projects saat halaman dimuat
 window.addEventListener('load', loadProjects);
-
-// Contact form handling
-document.querySelector('#contact form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const message = this.querySelector('textarea').value;
-    
-    // Simple validation
-    if (!name || !email || !message) {
-        alert('Mohon lengkapi semua field yang diperlukan.');
-        return;
-    }
-    
-    // Show success message (in real implementation, you would send this to a server)
-    const button = this.querySelector('button');
-    const originalText = button.innerHTML;
-    button.innerHTML = '<i class="fas fa-check mr-2"></i>Pesan Terkirim!';
-    button.classList.add('bg-green-500');
-    button.classList.remove('bg-white', 'text-blue-600');
-    button.classList.add('text-white');
-    
-    // Reset form
-    this.reset();
-    
-    // Reset button after 3 seconds
-    setTimeout(() => {
-        button.innerHTML = originalText;
-        button.classList.remove('bg-green-500', 'text-white');
-        button.classList.add('bg-white', 'text-blue-600');
-    }, 3000);
-});

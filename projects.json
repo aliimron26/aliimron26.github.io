@@ -1,4 +1,18 @@
 {
     "projects": [
+        {
+            "title": "Website GivEat",
+            "description": "Sebuah website yang dapat melakukan donasi dari sisa makanan yang belum terjual oleh sebuah restoran, dan orang lain dapat melakukan claim makanan tersebut dan mengambilnya di restoran",
+            "technologies": [
+                "PHP",
+                " HTML",
+                " JS",
+                " CSS",
+                " NODE JS",
+                " LARAVEL"
+            ],
+            "image": "resource\/project\/Frame 121.png",
+            "link": "https:\/\/github.com\/RPL-SI-2025\/GivEat_TIM_342_SI4610"
+        }
     ]
 }
