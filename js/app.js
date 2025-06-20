@@ -113,7 +113,7 @@ async function loadProjects() {
                             <div class="flex flex-wrap gap-2 mb-6">
                                 ${project.technologies.map(tech => `<span class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-700 px-3 py-1 rounded-full text-xs font-medium border border-blue-200/50">${tech}</span>`).join('')}
                             </div>
-                            <a href="proyek/${project.title.toLowerCase().replace(/\s+/g, '-')}.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-purple-600 transition-colors group">
+                            <a href="${project.link}" class="inline-flex items-center text-blue-600 font-semibold hover:text-purple-600 transition-colors group">
                                 Lihat Detail 
                                 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                             </a>
