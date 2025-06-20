@@ -11,11 +11,11 @@
                 " NODE JS",
                 " LARAVEL"
             ],
-            "image": "resource\/project\/Frame 121.png",
+            "image": "resource\/project\/giveat.png",
             "link": "https:\/\/github.com\/RPL-SI-2025\/GivEat_TIM_342_SI4610"
         },
         {
-            "title": "Sistem Layanan Perpustakaan Berbasis Web dengan Arsitektur Microservices",
+            "title": "Pustakara: Sistem Layanan Perpustakaan Berbasis Web dengan Arsitektur Microservices",
             "description": "Sebuah platform yang mengintegrasikan layanan perpustakaan berbasis web dengan arsitektur microservices. Dengan teknologi yang efisien dan mudah diakses, sistem ini memungkinkan pengelolaan anggota, katalog buku, peminjaman, pembelian, dan pembayaran secara otomatis dan terintegrasi.",
             "technologies": [
                 "HTML",
@@ -27,8 +27,21 @@
                 " GraphQL",
                 " Docker"
             ],
-            "image": "resource\/project\/Screenshot (135).png",
+            "image": "resource\/project\/pustakara.png",
             "link": "https:\/\/hub.docker.com\/repository\/docker\/aliimron26\/library_system\/general"
+        },
+        {
+            "title": "Analisis Penjualan Terintegrasi: Menerapkan Data Warehouse dan Business Intelligence untuk Keputusan Strategis",
+            "description": "Proyek ini menggunakan Data Warehouse dan Business Intelligence untuk menganalisis kinerja penjualan perusahaan. Dengan implementasi Star Schema, proses ETL, serta teknik data mining seperti Time Series Analysis dan K-Means Clustering, proyek ini menyediakan wawasan tentang tren penjualan, segmentasi pelanggan, dan proyeksi masa depan. Hasilnya membantu pengambilan keputusan strategis berbasis data melalui Dashboard KPI yang komprehensif.",
+            "technologies": [
+                "RDBMS",
+                " Pentaho Data Integration",
+                " Facebook Prophet",
+                " K-Means Clustering",
+                " Google Looker Studio"
+            ],
+            "image": "resource\/project\/dwbi.jpg",
+            "link": "https:\/\/drive.google.com\/file\/d\/10ps1qSvGd0Q2i3CcWXNw4G9sVhCPKwaG\/view?usp=sharing"
         }
     ]
 }
