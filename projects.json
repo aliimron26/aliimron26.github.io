@@ -1,8 +1,8 @@
 {
     "projects": [
         {
-            "title": "Website GivEat",
-            "description": "Sebuah website yang dapat melakukan donasi dari sisa makanan yang belum terjual oleh sebuah restoran, dan orang lain dapat melakukan claim makanan tersebut dan mengambilnya di restoran",
+            "title": "GivEat: Platform Donasi Makanan untuk Mengurangi Limbah dan Mengatasi Kelaparan",
+            "description": "Platform inovatif yang menghubungkan donatur makanan dengan penerima yang membutuhkan. Dengan teknologi yang mudah digunakan, GivEat akan  membantu mengurangi dan mengolah limbah makanan sekaligus mendukung gerakan sosial untuk mengatasi kelaparan.",
             "technologies": [
                 "PHP",
                 " HTML",
@@ -13,6 +13,22 @@
             ],
             "image": "resource\/project\/Frame 121.png",
             "link": "https:\/\/github.com\/RPL-SI-2025\/GivEat_TIM_342_SI4610"
+        },
+        {
+            "title": "Sistem Layanan Perpustakaan Berbasis Web dengan Arsitektur Microservices",
+            "description": "Sebuah platform yang mengintegrasikan layanan perpustakaan berbasis web dengan arsitektur microservices. Dengan teknologi yang efisien dan mudah diakses, sistem ini memungkinkan pengelolaan anggota, katalog buku, peminjaman, pembelian, dan pembayaran secara otomatis dan terintegrasi.",
+            "technologies": [
+                "HTML",
+                " JS",
+                " CSS",
+                " PHP",
+                " LARAVEL",
+                " MySQL",
+                " GraphQL",
+                " Docker"
+            ],
+            "image": "resource\/project\/Screenshot (135).png",
+            "link": "https:\/\/hub.docker.com\/repository\/docker\/aliimron26\/library_system\/general"
         }
     ]
 }
