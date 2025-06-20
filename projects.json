@@ -42,6 +42,21 @@
             ],
             "image": "resource\/project\/dwbi.jpg",
             "link": "https:\/\/drive.google.com\/file\/d\/10ps1qSvGd0Q2i3CcWXNw4G9sVhCPKwaG\/view?usp=sharing"
+        },
+        {
+            "title": "Pengembangan Sistem Pengenalan Wajah Real-Time untuk Absensi Laboratorium EDM",
+            "description": "Proyek ini bertujuan untuk mengembangkan sistem absensi berbasis pengenalan wajah real-time di Laboratorium EDM Telkom University. Sistem ini menggantikan metode absensi manual yang rawan kesalahan dan pemalsuan dengan teknologi pengenalan wajah untuk mendeteksi dan mencatat kehadiran mahasiswa secara otomatis. Hasilnya adalah data absensi yang lebih akurat, cepat, dan aman, mendukung efisiensi pengelolaan absensi serta mengurangi waktu tunggu mahasiswa.",
+            "technologies": [
+                "Python",
+                " Flask",
+                " OpenCV",
+                " Numpy",
+                " MySQL",
+                " HTML",
+                " CSS"
+            ],
+            "image": "resource\/project\/face_recognition.png",
+            "link": "https:\/\/github.com\/lifeatedmlab\/PROJECT-FACE-RECOGNITION"
         }
     ]
 }
