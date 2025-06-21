@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,94 +7,154 @@
     <title>Ali Imron | Portofolio</title>
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'text-gradient': 'text-gradient 4s linear infinite',
+                        'border-pulse': 'border-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' },
+                        },
+                        'text-gradient': {
+                            'to': { 'background-position': '200% center' },
+                        },
+                        'border-pulse': {
+                            '0%, 100%': { 'border-color': 'rgba(99, 102, 241, 0.5)' },
+                            '50%': { 'border-color': 'rgba(99, 102, 241, 1)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 font-inter antialiased">
+
+    <!-- Cursor Effect -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
+        <div class="relative w-24 h-24">
+            <div class="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin"></div>
+            <div class="absolute inset-4 rounded-full border-4 border-indigo-300 border-b-transparent animate-spin-reverse"></div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js" class="fixed inset-0 -z-10"></div>
 
     <!-- Header/Navbar -->
-    <header class="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200/50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold gradient-text">M. Ali Imron Almuzaky</a>
+    <header class="fixed top-0 z-40 w-full bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200/50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-indigo-700 hover:to-purple-700 transition-all duration-500">
+                <span class="hidden md:inline">M. Ali Imron Almuzaky</span>
+                <span class="md:hidden">Ali Imron</span>
+            </a>
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Proyek</a>
-                <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Keahlian</a>
-                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">Tentang</a>
-                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Kontak</a>
+                <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors duration-300">Home</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors duration-300">Proyek</a>
+                <a href="#skills" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors duration-300">Keahlian</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors duration-300">Tentang</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors duration-300">Kontak</a>
             </div>
             <button class="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors" id="mobile-menu-button">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-white/95 backdrop-blur-md w-full px-4 py-4 shadow-lg border-t border-gray-200/50" id="mobile-menu">
-            <a href="#home" class="block py-3 text-gray-700 hover:text-blue-600 font-medium">Home</a>
-            <a href="#projects" class="block py-3 text-gray-700 hover:text-blue-600 font-medium">Proyek</a>
-            <a href="#skills" class="block py-3 text-gray-700 hover:text-blue-600 font-medium">Keahlian</a>
-            <a href="#about" class="block py-3 text-gray-700 hover:text-blue-600 font-medium">Tentang</a>
-            <a href="#contact" class="block py-3 text-gray-700 hover:text-blue-600 font-medium">Kontak</a>
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-md w-full px-4 py-4 shadow-lg border-t border-gray-200/50 transition-all duration-300" id="mobile-menu">
+            <a href="#home" class="block py-3 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Home</a>
+            <a href="#projects" class="block py-3 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Proyek</a>
+            <a href="#skills" class="block py-3 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Keahlian</a>
+            <a href="#about" class="block py-3 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Tentang</a>
+            <a href="#contact" class="block py-3 text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-300">Kontak</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section text-white py-24 min-h-screen flex items-center relative"> 
+    <section id="home" class="hero-section text-white py-24 min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-600 z-0"></div>
+        <div class="absolute inset-0 opacity-10 z-0" style="background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 25%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.2) 0%, transparent 25%);"></div>
         
-        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center mt-16">
-            <div class="lg:w-1/2 mb-12 lg:mb-0 z-10">
-                <div class="fade-in">
-                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Hai, Saya 
-                        <span class="block gradient-text bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
-                            Ali Imron
-                        </span>
-                    </h1>
-                    <h2 class="text-2xl lg:text-3xl font-semibold mb-6 text-blue-100">
-                        Pengembang Web & Mahasiswa Sistem Informasi
-                    </h2>
-                    <p class="text-lg mb-8 text-blue-50 leading-relaxed max-w-lg">
-                        Saya membuat solusi digital yang kreatif dan fungsional dengan fokus pada pengalaman pengguna yang optimal dan desain yang memukau.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#projects" class="btn-gradient text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
-                            <i class="fas fa-rocket mr-2"></i>Lihat Proyek
-                        </a>
-                        <a href="https://github.com/aliimron26" target="_blank" class="glass-effect text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 text-center">
-                            <i class="fab fa-github mr-2"></i>GitHub
-                        </a>
-                    </div>
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center mt-16 relative z-10">
+            <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right" data-aos-duration="800">
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight font-poppins">
+                    Hai, Saya 
+                    <span class="block bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-500 bg-clip-text text-transparent animate-text-gradient">
+                        Ali Imron
+                    </span>
+                </h1>
+                <h2 class="text-2xl lg:text-3xl font-semibold mb-6 text-indigo-100">
+                    <span class="typing-animation" id="typing-text"></span>
+                </h2>
+                <p class="text-lg mb-8 text-indigo-50 leading-relaxed max-w-lg">
+                    Saya membuat solusi digital yang kreatif dan fungsional dengan fokus pada pengalaman pengguna yang optimal dan desain yang memukau.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#projects" class="btn-gradient text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center group">
+                        <i class="fas fa-rocket mr-2 group-hover:animate-bounce"></i>Lihat Proyek
+                    </a>
+                    <a href="https://github.com/aliimron26" target="_blank" class="glass-effect text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 text-center group">
+                        <i class="fab fa-github mr-2 group-hover:rotate-12 transition-transform"></i>GitHub
+                    </a>
                 </div>
             </div>
-            <div class="lg:w-1/2 flex justify-center">
-                <div class="profile-image rounded-full w-80 h-80 lg:w-96 lg:h-96 relative floating-animation">
-                    <img src="resource/profile.jpg" alt="M. Ali Imron Almuzaky" class="rounded-full w-full h-full object-cover border-4 border-white/30 shadow-2xl relative z-10">
+            <div class="lg:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                <div class="relative">
+                    <div class="profile-image rounded-full w-80 h-80 lg:w-96 lg:h-96 relative floating-animation">
+                        <img src="resource/profile.jpg" alt="M. Ali Imron Almuzaky" class="rounded-full w-full h-full object-cover border-4 border-white/30 shadow-2xl relative z-10">
+                        <div class="absolute -inset-4 rounded-full border-4 border-indigo-400/30 animate-border-pulse z-0"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-yellow-400 to-pink-500 p-4 rounded-2xl shadow-xl z-20 hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Decorative Elements -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/70">
-            <div class="animate-bounce">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/70 z-10">
+            <a href="#projects" class="animate-bounce block">
+                <i class="fas fa-chevron-down text-2xl hover:text-white transition-colors"></i>
+            </a>
         </div>
     </section>
 
-
-
     <!-- Proyek Section -->
-    <section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 gradient-text">Proyek Terbaru</h2>
-                <div class="section-divider w-24 mx-auto mb-6"></div>
+    <section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 z-0" style="background-image: radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 25%), radial-gradient(circle at 30% 70%, rgba(99, 102, 241, 0.1) 0%, transparent 25%);"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Proyek Terbaru</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto mb-6 rounded-full"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
                     Koleksi proyek yang menunjukkan kemampuan saya dalam pengembangan web dan solusi teknologi
                 </p>
@@ -104,8 +164,8 @@
                 <!-- Proyek akan dimuat di sini -->
             </div>
             
-            <div id="empty-project-message" class="hidden text-center py-16 fade-in">
-                <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-12 max-w-md mx-auto">
+            <div id="empty-project-message" class="hidden text-center py-16">
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-12 max-w-md mx-auto shadow-lg" data-aos="zoom-in">
                     <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-folder-open text-3xl text-white"></i>
                     </div>
@@ -116,73 +176,75 @@
                 </div>
             </div>
             
-            <div class="text-center">
-                <button id="show-more-projects" class="btn-gradient text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300">
-                    <i class="fas fa-arrow-down mr-2"></i>Lihat Lebih Banyak
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <button id="show-more-projects" class="btn-gradient text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-xl group">
+                    <i class="fas fa-arrow-down mr-2 group-hover:animate-bounce"></i>Lihat Lebih Banyak
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Keahlian Section -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 gradient-text">Keahlian Teknis</h2>
-                <div class="section-divider w-24 mx-auto mb-6"></div>
+    <section id="skills" class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 z-0" style="background-image: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 30%), radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.2) 0%, transparent 30%);"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Keahlian Teknis</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto mb-6 rounded-full"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
                     Teknologi dan tools yang saya kuasai untuk menciptakan solusi digital yang berkualitas
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
                 <!-- Web Development -->
-                <div class="skill-card bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 hover:shadow-xl">
+                <div class="skill-card bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="flex items-center mb-6">
-                        <div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-4 rounded-2xl mr-4 shadow-lg">
+                        <div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-4 rounded-2xl mr-4 shadow-lg group-hover:rotate-12 transition-transform duration-500">
                             <i class="fas fa-code text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800">Pengembangan Web</h3>
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">Membangun aplikasi web responsif dan interaktif dengan teknologi modern dan best practices.</p>
                     <div class="flex flex-wrap gap-3">
-                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">HTML5</span>
-                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">CSS3</span>
-                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">Laravel</span>
-                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">Bootstrap</span>
-                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">Tailwind</span>
+                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 hover:bg-blue-500/20 transition-colors">HTML5</span>
+                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 hover:bg-blue-500/20 transition-colors">CSS3</span>
+                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 hover:bg-blue-500/20 transition-colors">Laravel</span>
+                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 hover:bg-blue-500/20 transition-colors">Bootstrap</span>
+                        <span class="bg-blue-500/10 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200 hover:bg-blue-500/20 transition-colors">Tailwind</span>
                     </div>
                 </div>
                 
                 <!-- Programming -->
-                <div class="skill-card bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 hover:shadow-xl">
+                <div class="skill-card bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="flex items-center mb-6">
-                        <div class="bg-gradient-to-br from-green-500 to-emerald-600 p-4 rounded-2xl mr-4 shadow-lg">
+                        <div class="bg-gradient-to-br from-green-500 to-emerald-600 p-4 rounded-2xl mr-4 shadow-lg group-hover:rotate-12 transition-transform duration-500">
                             <i class="fas fa-laptop-code text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800">Pemrograman</h3>
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">Mengembangkan solusi perangkat lunak dengan berbagai bahasa pemrograman dan paradigma.</p>
                     <div class="flex flex-wrap gap-3">
-                        <span class="bg-green-500/10 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200">Python</span>
-                        <span class="bg-green-500/10 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200">PHP</span>
+                        <span class="bg-green-500/10 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200 hover:bg-green-500/20 transition-colors">Python</span>
+                        <span class="bg-green-500/10 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200 hover:bg-green-500/20 transition-colors">PHP</span>
                     </div>
                 </div>
                 
                 <!-- Tools -->
-                <div class="skill-card bg-gradient-to-br from-purple-50 to-violet-100 rounded-2xl p-8 hover:shadow-xl">
+                <div class="skill-card bg-gradient-to-br from-purple-50 to-violet-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
                     <div class="flex items-center mb-6">
-                        <div class="bg-gradient-to-br from-purple-500 to-violet-600 p-4 rounded-2xl mr-4 shadow-lg">
+                        <div class="bg-gradient-to-br from-purple-500 to-violet-600 p-4 rounded-2xl mr-4 shadow-lg group-hover:rotate-12 transition-transform duration-500">
                             <i class="fas fa-tools text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800">Alat & Platform</h3>
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">Menggunakan berbagai alat modern dan platform untuk pengembangan yang efisien dan kolaboratif.</p>
                     <div class="flex flex-wrap gap-3">
-                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200">Git/GitHub</span>
-                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200">VS Code</span>
-                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200">Docker</span>
-                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200">Figma</span>
+                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200 hover:bg-purple-500/20 transition-colors">Git/GitHub</span>
+                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200 hover:bg-purple-500/20 transition-colors">VS Code</span>
+                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200 hover:bg-purple-500/20 transition-colors">Docker</span>
+                        <span class="bg-purple-500/10 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200 hover:bg-purple-500/20 transition-colors">Figma</span>
                     </div>
                 </div>
             </div>
@@ -190,30 +252,32 @@
     </section>
 
     <!-- Tentang Saya Section -->
-    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold mb-4 gradient-text">Tentang Saya</h2>
-                <div class="section-divider w-24 mx-auto mb-6"></div>
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 z-0" style="background-image: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 25%), radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.1) 0%, transparent 25%);"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Tentang Saya</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto mb-6 rounded-full"></div>
             </div>
             
             <div class="flex flex-col lg:flex-row items-center max-w-6xl mx-auto">
-                <div class="lg:w-1/3 mb-12 lg:mb-0 flex justify-center">
+                <div class="lg:w-1/3 mb-12 lg:mb-0 flex justify-center" data-aos="fade-right">
                     <div class="relative">
-                        <img src="resource/profile.jpg" alt="M. Ali Imron Almuzaky" class="rounded-2xl w-80 h-80 object-cover shadow-2xl">
-                        <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-blue-400 to-purple-500 p-4 rounded-2xl shadow-lg">
+                        <img src="resource/profile.jpg" alt="M. Ali Imron Almuzaky" class="rounded-2xl w-80 h-80 object-cover shadow-2xl border-4 border-white/30">
+                        <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-indigo-500 to-purple-600 p-4 rounded-2xl shadow-xl hover:scale-110 transition-transform duration-300">
                             <i class="fas fa-code text-white text-2xl"></i>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-2/3 lg:pl-16">
+                <div class="lg:w-2/3 lg:pl-16" data-aos="fade-left" data-aos-delay="200">
                     <h3 class="text-3xl font-bold mb-6 text-gray-800">Profil Singkat</h3>
                     <p class="text-gray-600 mb-8 text-lg leading-relaxed">
                         Saya adalah mahasiswa Sistem Informasi di Telkom University dengan passion mendalam di bidang pengembangan web dan teknologi informasi. Saya senang menciptakan solusi digital yang tidak hanya berfungsi dengan baik tetapi juga memberikan pengalaman pengguna yang luar biasa dan desain yang memukau.
                     </p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-200/50">
+                        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
                             <h4 class="font-bold text-gray-800 mb-3 flex items-center">
                                 <div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-lg mr-3">
                                     <i class="fas fa-graduation-cap text-white"></i>
@@ -223,10 +287,10 @@
                             <p class="text-gray-600">
                                 <span class="font-semibold">S1 Sistem Informasi</span><br>
                                 Telkom University<br>
-                                <span class="text-green-600 font-semibold">IPK: 3.69/4.00</span>
+                                <span class="text-indigo-600 font-semibold">IPK: 3.69/4.00</span>
                             </p>
                         </div>
-                        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-200/50">
+                        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
                             <h4 class="font-bold text-gray-800 mb-3 flex items-center">
                                 <div class="bg-gradient-to-br from-green-500 to-emerald-600 p-2 rounded-lg mr-3">
                                     <i class="fas fa-briefcase text-white"></i>
@@ -236,19 +300,19 @@
                             <p class="text-gray-600">
                                 <span class="font-semibold">Staff Riset & Development</span><br>
                                 EDM Laboratory<br>
-                                <span class="text-blue-600 font-semibold">2024 - Sekarang</span>
+                                <span class="text-indigo-600 font-semibold">2024 - Sekarang</span>
                             </p>
                         </div>
                     </div>
                     
                     <div class="flex space-x-4">
-                        <a href="https://linkedin.com/in/aliimrona/" target="_blank" class="social-icon bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300">
+                        <a href="https://linkedin.com/in/aliimrona/" target="_blank" class="social-icon bg-gradient-to-br from-blue-500 to-blue-600 text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
                             <i class="fab fa-linkedin-in text-xl"></i>
                         </a>
-                        <a href="https://github.com/aliimron26" target="_blank" class="social-icon bg-gradient-to-br from-gray-700 to-gray-800 text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300">
+                        <a href="https://github.com/aliimron26" target="_blank" class="social-icon bg-gradient-to-br from-gray-700 to-gray-800 text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
                             <i class="fab fa-github text-xl"></i>
                         </a>
-                        <a href="mailto:almu26zaky@gmail.com" class="social-icon bg-gradient-to-br from-red-500 to-red-600 text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300">
+                        <a href="mailto:almu26zaky@gmail.com" class="social-icon bg-gradient-to-br from-red-500 to-red-600 text-white p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
                             <i class="fas fa-envelope text-xl"></i>
                         </a>
                     </div>
@@ -258,101 +322,132 @@
     </section>
 
     <!-- Kontak Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white relative overflow-hidden">
+    <section id="contact" class="py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white relative overflow-hidden">
         <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 opacity-10 z-0">
             <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%)"></div>
         </div>
         
         <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16 fade-in">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-bold mb-4">Mari Berkolaborasi!</h2>
                 <div class="w-24 h-1 bg-white/30 mx-auto mb-6 rounded-full"></div>
-                <p class="text-blue-100 max-w-2xl mx-auto text-lg">
+                <p class="text-indigo-100 max-w-2xl mx-auto text-lg">
                     Siap untuk mewujudkan ide digital Anda? Mari berkolaborasi dan ciptakan sesuatu yang luar biasa bersama
                 </p>
             </div>
             
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="fade-in">
+                <div class="fade-in" data-aos="fade-right">
                     <h3 class="text-2xl font-bold mb-6">Hubungi Saya</h3>
-                    <p class="mb-8 text-blue-100 leading-relaxed">
+                    <p class="mb-8 text-indigo-100 leading-relaxed">
                         Saya terbuka untuk peluang magang, proyek freelance, kolaborasi, atau sekadar berdiskusi tentang teknologi dan inovasi digital.
                     </p>
                     
                     <ul class="space-y-6">
                         <li class="flex items-center group">
-                            <div class="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors">
+                            <div class="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors duration-300">
                                 <i class="fas fa-phone text-xl"></i>
                             </div>
                             <div>
                                 <p class="font-semibold">Telepon</p>
-                                <span class="text-blue-100">+62 895 3645 01614</span>
+                                <span class="text-indigo-100">+62 895 3645 01614</span>
                             </div>
                         </li>
                         <li class="flex items-center group">
-                            <div class="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors">
+                            <div class="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors duration-300">
                                 <i class="fas fa-envelope text-xl"></i>
                             </div>
                             <div>
                                 <p class="font-semibold">Email</p>
-                                <a href="mailto:almu26zaky@gmail.com" class="text-blue-100 hover:text-white transition-colors">almu26zaky@gmail.com</a>
+                                <a href="mailto:almu26zaky@gmail.com" class="text-indigo-100 hover:text-white transition-colors duration-300">almu26zaky@gmail.com</a>
                             </div>
                         </li>
                         <li class="flex items-center group">
-                            <div class="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors">
+                            <div class="bg-white/20 p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors duration-300">
                                 <i class="fas fa-map-marker-alt text-xl"></i>
                             </div>
                             <div>
                                 <p class="font-semibold">Lokasi</p>
-                                <span class="text-blue-100">Grobogan, Jawa Tengah - Indonesia</span>
+                                <span class="text-indigo-100">Grobogan, Jawa Tengah - Indonesia</span>
                             </div>
                         </li>
                     </ul>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-6">Kirim Pesan</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <input type="hidden" name="contact_number">
+                        <div>
+                            <label for="name" class="block text-indigo-100 mb-2">Nama Anda</label>
+                            <input type="text" id="name" name="user_name" required class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-300 placeholder-indigo-200 text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-indigo-100 mb-2">Email Anda</label>
+                            <input type="email" id="email" name="user_email" required class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-300 placeholder-indigo-200 text-white">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-indigo-100 mb-2">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-300 placeholder-indigo-200 text-white"></textarea>
+                        </div>
+                        <button type="submit" class="btn-gradient text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 w-full">
+                            <i class="fas fa-paper-plane mr-2"></i>Kirim Pesan
+                        </button>
+                    </form>
+                    <div id="form-alert" class="hidden mt-4 p-4 rounded-xl"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-gray-900 to-black text-white py-12">
-        <div class="container mx-auto px-4">
+    <footer class="bg-gradient-to-r from-gray-900 to-black text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 z-0" style="background-image: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.2) 0%, transparent 25%), radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 25%);"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row justify-between items-center">
-                <div class="mb-8 lg:mb-0 text-center lg:text-left">
-                    <a href="#" class="text-3xl font-bold gradient-text bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Ali Imron</a>
+                <div class="mb-8 lg:mb-0 text-center lg:text-left" data-aos="fade-right">
+                    <a href="#" class="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-indigo-300 hover:to-purple-300 transition-all duration-500">Ali Imron</a>
                     <p class="mt-3 text-gray-400 text-lg">Pengembang Web & Mahasiswa Sistem Informasi</p>
                     <p class="mt-2 text-gray-500">Menciptakan solusi digital yang inovatif dan menginspirasi</p>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="https://linkedin.com/in/aliimrona/" target="_blank" class="social-icon bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-xl transition-all duration-300">
+                <div class="flex space-x-6" data-aos="fade-left" data-aos-delay="200">
+                    <a href="https://linkedin.com/in/aliimrona/" target="_blank" class="social-icon bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
                         <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="https://github.com/aliimron26" target="_blank" class="social-icon bg-gray-700 hover:bg-gray-600 text-white p-4 rounded-xl transition-all duration-300">
+                    <a href="https://github.com/aliimron26" target="_blank" class="social-icon bg-gray-700 hover:bg-gray-600 text-white p-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
                         <i class="fab fa-github text-xl"></i>
                     </a>
-                    <a href="mailto:almu26zaky@gmail.com" class="social-icon bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl transition-all duration-300">
+                    <a href="mailto:almu26zaky@gmail.com" class="social-icon bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
                         <i class="fas fa-envelope text-xl"></i>
                     </a>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-400">
-                    &copy; 2025 M. Ali Imron Almuzaky
+                    &copy; 2025 M. Ali Imron Almuzaky. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-full shadow-2xl hidden hover:shadow-3xl hover:scale-110 transition-all duration-300 z-50">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-full shadow-2xl hidden hover:shadow-3xl hover:scale-110 transition-all duration-300 z-50">
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
     <!-- Scripts -->
-    <script src="js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init("2a_xzgeUyGQog_6h8"); // Ganti dengan User ID Anda dari EmailJS
+    })();
+    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
