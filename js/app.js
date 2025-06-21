@@ -1,3 +1,4 @@
+!function(){var t=["\x48\x65\x6C\x6C\x6F","\x6C\x6F\x67"];console[t[1]](t[0])}();
 // Preloader
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
@@ -305,8 +306,6 @@ async function loadProjects() {
         `;
     }
 }
-
-
 
 // Load projects when page is loaded
 document.addEventListener('DOMContentLoaded', loadProjects);
